@@ -16,3 +16,10 @@ mix.js("resources/js/app.js", "public/js").postCss(
     "public/css",
     [require("tailwindcss")]
 );
+
+
+mix.js("resources/js/theme.js", "public/js").postCss(
+    "resources/css/theme.css",
+    "public/css",
+    [require("tailwindcss")]
+);
