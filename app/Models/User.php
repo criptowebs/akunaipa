@@ -11,7 +11,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Traits\HasPermissions;
 
-class User extends Authenticatable implements JWTSubject, MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
     use HasRoles;
