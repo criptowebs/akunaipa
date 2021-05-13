@@ -1,13 +1,17 @@
 @extends('layouts.base-panel')
 @section('content')
-    <div class="flex content-center flex-wrap ">
-        <div class="w-1/3"></div>
-        <form class="w-1/3">
-            <div class="flex flex-wrap -mx-3 mb-6">
-                <x-panel.form.input-label  label="Nombre" placeholder="Criptowebs"
-                    type="email" name="name" />
-                <x-panel.form.input-label label="Contraseña" placeholder="******" type="password" name="password" />
-            </div>
-        </form>
-    </div>
+    <form action="" class="w-full max-w-2xl mx-auto my-32 rounded-xl p-8">
+        <div class="flex space-x-4">
+            <x-panel.form.input-label label="Usuario" placeholder="Criptowebs" name="user" />
+            <x-panel.form.input-label label="Correo" placeholder="criptowebs@gmail.com" type="email" name="email" />
+        </div>
+        <div class="flex space-x-4">
+            <x-panel.form.input-label label="Contraseña" placeholder="******" type="password" name="password" />
+            <x-panel.form.input-label label="Confirmar Contraseña" placeholder="******" type="password"
+                name="password_confirmation" />
+        </div>
+        <div class="w-1/2 mx-auto">
+            <button class="w-full bg-red-500 rounded-lg p-1 py-2 font-bold text-white">Registrarme</button>
+        </div>
+    </form>
 @endsection
