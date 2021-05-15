@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreRequest;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -53,8 +54,22 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ], [
+            'user.string' => 'El usuario no puede ser numerico.',
+            'user.required' => 'El Usuario es requerido.',
+            'user.max' => 'Haz superado el numero maximo de caracteres.',
+            'user.min' => 'El nombr de usuario debe de tener minimo 3 letras.',
+            'user.unique' => 'El usuario ingresado ya se encuentra en uso.',
+            'email.unique' => 'El email ingresado ya se encuentra en uso.',
+            'email.string' => 'Email no valido',
+            'email.required' => 'El Correo es requerido',
+            'password.required' => 'La contraseña es requerida',
+            'password.min' => 'La contraseña debe de tener minimo 3 caracteres.',
+            'password.confirm' => 'Confirmacio de contraseña requerida'
         ]);
     }
+
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -64,6 +79,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -71,8 +87,8 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function showRegistrationForm()
-    {
-        return view('auth.register', ['name' => 'example']);
-    }
+    // public function showRegistrationForm()
+    // {
+    //     return view('auth.register', ['name' => 'example'])->withErrors(request());
+    // }
 }
