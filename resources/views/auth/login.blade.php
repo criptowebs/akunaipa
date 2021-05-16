@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app',['title'=>'Entrar'])
 @section('content')
 
-    <form action="" class="my-20 p-8  w-1/3 mx-auto bg-blue-500 rounded-lg">
-
+    <form action="{{ route('login') }}" method="POST" class="my-20 p-8  w-1/3 mx-auto bg-blue-500 rounded-lg">
+        @csrf
         <x-panel.form.input-label autofocus label="Correo" placeholder="Criptowebs@gmail.com" name="email" />
         <x-panel.form.input-label label="Contraseña" placeholder="******" name="password" />
 
